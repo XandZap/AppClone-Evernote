@@ -46,7 +46,7 @@ const Header = () => {
                       Register
                     </Link>
                   </div>
-                  <div class="column">
+                  <div className="column">
                     <Link to="/login" className="button is-outlined is-custom-purple">
                       Login
                     </Link>

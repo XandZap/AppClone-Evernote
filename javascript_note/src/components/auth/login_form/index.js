@@ -2,47 +2,31 @@ import React, { Fragment, useState } from "react";
 import { Navigate } from "react-router-dom";
 import UsersService from "../../../services/user";
 
-const RegisterForm = () => {
-  const [name, setName] = useState("");
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [RedirectToRegister, setRedirectToRegister] = useState(false);
+  const [RedirectToNotes, setRedirectToNotes] = useState(false);
   const [error, setError] = useState(false);
 
   const HandleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const user = await UsersService.register({ name: name, email: email, password: password });
-      setRedirectToLogin(true);
+      const user = await UsersService.login({ email: email, password: password });
+      setRedirectToNotes(true);
     } catch (error) {
       setError(true);
     }
   };
 
-  if (redirectToLogin) return <Navigate to={{ pathname: "/login" }} />;
+  if (RedirectToRegister) return <Navigate to={{ pathname: "/register" }} />;
+  else if (RedirectToNotes) return <Navigate to={{ pathname: "/notes" }} />;
 
   return (
     <Fragment>
       <div className="columns is-centered">
         <form onSubmit={HandleSubmit}>
           <div className="column is-12">
-            {/*Name*/}
-            <div className="field">
-              <label className="label is-small" htmlFor="name">
-                Name:
-              </label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="name"
-                  id="name"
-                  required
-                  name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </div>
-            </div>
             {/*Email*/}
             <div className="field">
               <label htmlFor="email" className="label is-small">
@@ -81,20 +65,15 @@ const RegisterForm = () => {
             <div className="field">
               <div className="control">
                 <div breakpoint="mobile">
-                <div className="columns">
-                  <div className="column">
-                    <a
-                      className="button is-white has-text-custom-purple"
-                      onClick={(e) => setRedirectToLogin(true)}
-                    >
-                      Login or
-                    </a>
-                  </div>
-                  <div className="column">
-                    <button className="button is-custom-purple is-outlined">Register</button>
+                  <div className="columns">
+                    <div className="column">
+                      <a onClick={e => setRedirectToRegister(true)} className="button is-white has-text-custom-purple">Register or</a>
+                    </div>
+                    <div className="column">
+                      <button className="button is-custom-purple is-outlined">Login</button>
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </div>
             {error && <p className="helper has-text-danger-dark">Email or Password invalid</p>}
@@ -103,6 +82,6 @@ const RegisterForm = () => {
       </div>
     </Fragment>
   );
-};
+}
 
-export default RegisterForm;
+export default LoginForm;

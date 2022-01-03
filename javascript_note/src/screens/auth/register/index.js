@@ -14,6 +14,7 @@ const RegisterScreen = () => {
           <div className="columns is-centered">
             <div className="column is-3">
               <div className="card">
+              <div className="card-content">
                 <section className="section">
                   <div className="columns is-centered">
                     <div className="column is-12">
@@ -27,6 +28,7 @@ const RegisterScreen = () => {
                   </div>
                   <RegisterForm/>
                 </section>
+                </div>
               </div>
             </div>
           </div>

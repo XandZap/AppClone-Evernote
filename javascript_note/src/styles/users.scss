@@ -1,0 +1,60 @@
+@import "./custom_colors";
+
+
+div.container-editor {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+div.columns.box {
+  width: 300px;
+  height: 310px;
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+button.edit {
+  width: 190px;
+  height: 40px;
+}
+
+div.del.notification {
+  margin: 30px 30px 30px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  button {
+    margin: 10px 0 0;
+    padding: 16px;
+  }
+}
+
+Link {
+  color: inherit;
+  text-decoration: none;
+  text-decoration:'inherit';
+}
+
+#password{
+  margin: auto auto auto;
+}
+
+#background{
+  background-color: $custom-grey;
+  width: 100%;
+  height: 90%;
+}
+

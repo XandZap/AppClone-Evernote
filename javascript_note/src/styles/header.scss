@@ -11,3 +11,13 @@ nav.navbar {
         }
     }
 }
+
+.dropdown-menu{
+    min-width: 7.5rem;
+}
+
+#navbar-logged{
+    .navbar-menu{
+        background-color: $custom-purple;
+    }
+}

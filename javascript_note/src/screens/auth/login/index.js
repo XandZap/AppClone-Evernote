@@ -16,7 +16,7 @@ const LoginScreen = () => (
                 <section className="section">
                   <div className="columns is-centered">
                     <div className="column is-12">
-                      <img src={logoImage} alt="Placeholder image" />
+                      <img src={logoImage} alt="Placeholder" />
                     </div>
                   </div>
                   <div className="columns">
